@@ -11,7 +11,7 @@ public class GatlinGunScript : MonoBehaviour
     void Start()
     {
         towerCollider = GetComponent<Collider2D>();
-        InvokeRepeating("Shoot", 1f, 1f);
+        InvokeRepeating("Shoot", 0.5f, 0.5f);
     }
     private void Shoot()
     {
