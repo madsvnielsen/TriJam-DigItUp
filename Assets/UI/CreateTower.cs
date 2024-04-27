@@ -13,6 +13,7 @@ public class CreateTower : MonoBehaviour
     public GameObject planet;
 
     private GameObject spawnedTower;
+    private int i = 0;
     public GameObject tower1;
     public GameObject tower2;
     public GameObject tower3;
@@ -56,6 +57,18 @@ public class CreateTower : MonoBehaviour
             {
                 isTowerSelected = false;
                 spawnedTower = null;
+                if (i == 1)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 5);
+                }
+                else if (i == 2)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 5);
+                }
+                else if (i == 3)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 5);
+                }
             }
         }
     }
@@ -75,6 +88,7 @@ public class CreateTower : MonoBehaviour
             towerPrefab = tower3;
         }
         isTowerSelected = true;
+        this.i = i;
 
         Vector3 worldPosition = planetCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition.z = 0;
