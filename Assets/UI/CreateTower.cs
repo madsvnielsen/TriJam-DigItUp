@@ -77,7 +77,22 @@ public class CreateTower : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetTowerPrefab(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetTowerPrefab(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SetTowerPrefab(3);
+        }
     }
+
+
 
     public void SetTowerPrefab(int i)
     {

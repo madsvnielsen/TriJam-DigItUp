@@ -17,6 +17,7 @@ public class GameOver : MonoBehaviour
 
     public void RestartGame()
     {
+        InventoryManager.Reset();
         // Reload the scene
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);

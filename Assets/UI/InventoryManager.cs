@@ -1,8 +1,16 @@
+using UnityEngine;
+
 public static class InventoryManager
 {
     public static int Goldium { get; private set; }
     public static int Spacesonium { get; private set; }
     public static int Copperium { get; private set; }
+    public static void Reset()
+    {
+        Goldium = 0;
+        Spacesonium = 0;
+        Copperium = 0;
+    }
     public static void addItemToInventory(ResourceType resourceType, int amount)
     {
         switch (resourceType)

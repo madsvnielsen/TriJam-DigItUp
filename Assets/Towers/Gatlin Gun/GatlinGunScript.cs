@@ -15,38 +15,38 @@ public class GatlinGunScript : MonoBehaviour
     }
     private void Shoot()
     {
-        if(enemiesSpotted.Count >= 1)
+        if (enemiesSpotted.Count >= 1)
         {
             float smallestDistance = 100f;
-            foreach(GameObject go in enemiesSpotted)
+            foreach (GameObject go in enemiesSpotted)
             {
                 float newDist = Vector3.Distance(transform.position, go.transform.position);
-                if(newDist < smallestDistance)
+                if (newDist < smallestDistance)
                 {
                     smallestDistance = newDist;
                     target = go.transform;
                 }
             }
-            if(target != null)
+            if (target != null)
             {
 
                 Debug.Log("Shoot");
                 GameObject _shot = Instantiate(shot, transform.GetChild(1).GetChild(1).position, Quaternion.identity);
-                _shot.GetComponent<Rigidbody2D>().AddForce(transform.GetChild(1).right*100f);
+                _shot.GetComponent<Rigidbody2D>().AddForce(transform.GetChild(1).right * 100f);
             }
         }
     }
 
     void Update()
     {
-        if(target != null)
+        if (target != null)
         {
             transform.GetChild(1).right = target.position - transform.GetChild(1).position;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy Spotted");
             enemiesSpotted.Add(collision.gameObject);
