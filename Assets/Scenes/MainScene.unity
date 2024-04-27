@@ -191,6 +191,98 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &196074682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196074685}
+  - component: {fileID: 196074684}
+  - component: {fileID: 196074683}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &196074683
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196074682}
+  m_Enabled: 1
+--- !u!20 &196074684
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196074682}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &196074685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196074682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 223.1963, y: -110.83937, z: -3.6256235}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216244903
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,11 +503,11 @@ MonoBehaviour:
       - m_Target: {fileID: 836232574}
         m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
         m_MethodName: SetTowerPrefab
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 4548889434861797992, guid: 1aa9a4f61a81fa04196680e5ec1e8fa3, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -718,7 +810,7 @@ GameObject:
   - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: MiningCam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -883,7 +975,7 @@ GameObject:
   - component: {fileID: 836232574}
   m_Layer: 0
   m_Name: PlanetCam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,6 +1069,9 @@ MonoBehaviour:
   towerPrefab: {fileID: 4548889434861797992, guid: ce3c064477fcaaf4da8e2c122de7f7d7, type: 3}
   planetCamera: {fileID: 836232572}
   planet: {fileID: 192974264}
+  tower1: {fileID: 4548889434861797992, guid: ce3c064477fcaaf4da8e2c122de7f7d7, type: 3}
+  tower2: {fileID: 4548889434861797992, guid: e177493ed9a2bd2479e68c544bbc31ab, type: 3}
+  tower3: {fileID: 4548889434861797992, guid: 1aa9a4f61a81fa04196680e5ec1e8fa3, type: 3}
 --- !u!1 &967477940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,11 +1286,11 @@ MonoBehaviour:
       - m_Target: {fileID: 836232574}
         m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
         m_MethodName: SetTowerPrefab
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 4548889434861797992, guid: ce3c064477fcaaf4da8e2c122de7f7d7, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1592,11 +1687,11 @@ MonoBehaviour:
       - m_Target: {fileID: 836232574}
         m_TargetAssemblyTypeName: CreateTower, Assembly-CSharp
         m_MethodName: SetTowerPrefab
-        m_Mode: 2
+        m_Mode: 3
         m_Arguments:
-          m_ObjectArgument: {fileID: 4548889434861797992, guid: e177493ed9a2bd2479e68c544bbc31ab, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1808,3 +1903,4 @@ SceneRoots:
   - {fileID: 427850995}
   - {fileID: 192974265}
   - {fileID: 967477942}
+  - {fileID: 196074685}
