@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public BlockType blockType = BlockType.Stone;
+    public ResourceType blockType = ResourceType.Stone;
     public int strength = 1;
 
     public GameObject brokenOverlay;

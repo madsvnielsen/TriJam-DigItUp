@@ -39,25 +39,31 @@ public class GridController : MonoBehaviour{
             for(int y = 0; y > -height; y--){
                 Block newBlock = Instantiate(blockPrefab, new Vector3(x, y, 0), Quaternion.identity);
                 newBlock.name = $"Block {x}{y}";
+                Quaternion currentRotation = transform.rotation;
+                int randomZRotation = Random.Range(0, 4); // 0, 1, 2, or 3
+                float zAngle = randomZRotation * 90f;
+                newBlock.transform.rotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, zAngle);
+
+                
                 if (Mathf.PerlinNoise((x + goldOffset + xNoiseOffset) / 10f - 0.1f, (y + goldOffset + yNoiseOffset) / 10f - 0.1f) > 1 - goldThreshold)
                 {
                     //Set goldium
                     newBlock.strength = 2;
-                    newBlock.blockType = BlockType.Goldium;
+                    newBlock.blockType = ResourceType.Golduim;
                     newBlock.SetSprite(goldSprite);
                 }
                 else if (Mathf.PerlinNoise((x + spaceOffset + xNoiseOffset) / 10f - 0.1f, (y + spaceOffset + yNoiseOffset) / 10f - 0.1f) > 1 - spaceThreshold)
                 {
                     //Set spaceononium
                     newBlock.strength = 2;
-                    newBlock.blockType = BlockType.Spaceonium;
+                    newBlock.blockType = ResourceType.Spacesonium;
                     newBlock.SetSprite(spaceSprite);
                 }
                 else if (Mathf.PerlinNoise((x + copperiumOffset + xNoiseOffset) / 10f - 0.1f, (y + copperiumOffset + yNoiseOffset) / 10f - 0.1f) > 1 - copperiumThreshold)
                 {
                     //Set copperium
                     newBlock.strength = 2;
-                    newBlock.blockType = BlockType.Copperium;
+                    newBlock.blockType = ResourceType.Copperium;
                     newBlock.SetSprite(copperiumSprite);
                 }
                 
