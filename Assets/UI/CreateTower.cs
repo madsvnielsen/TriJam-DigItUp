@@ -59,15 +59,21 @@ public class CreateTower : MonoBehaviour
                 spawnedTower = null;
                 if (i == 1)
                 {
-                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 5);
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 5);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 2);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 0);
                 }
                 else if (i == 2)
                 {
-                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 5);
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 2);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 6);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 1);
                 }
                 else if (i == 3)
                 {
-                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 5);
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 1);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 3);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 7);
                 }
             }
         }
@@ -77,14 +83,26 @@ public class CreateTower : MonoBehaviour
     {
         if (i == 1)
         {
+            if (InventoryManager.Copperium < 5 || InventoryManager.Goldium < 2)
+            {
+                return;
+            }
             towerPrefab = tower1;
         }
         else if (i == 2)
         {
+            if (InventoryManager.Copperium < 2 || InventoryManager.Goldium < 6 || InventoryManager.Spacesonium < 1)
+            {
+                return;
+            }
             towerPrefab = tower2;
         }
         else if (i == 3)
         {
+            if (InventoryManager.Copperium < 1 || InventoryManager.Goldium < 3 || InventoryManager.Spacesonium < 7)
+            {
+                return;
+            }
             towerPrefab = tower3;
         }
         isTowerSelected = true;
