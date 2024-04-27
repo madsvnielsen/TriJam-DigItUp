@@ -37,7 +37,7 @@ public class GridController : MonoBehaviour{
         
         for(int x = -(width/2); x < width/2; x++){
             for(int y = 0; y > -height; y--){
-                Block newBlock = Instantiate(blockPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                Block newBlock = Instantiate(blockPrefab, new Vector3(x + transform.position.x, y + transform.position.y, 0), Quaternion.identity);
                 newBlock.name = $"Block {x}{y}";
                 Quaternion currentRotation = transform.rotation;
                 int randomZRotation = Random.Range(0, 4); // 0, 1, 2, or 3
