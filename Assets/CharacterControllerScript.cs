@@ -66,7 +66,7 @@ public class CharacterControllerScript : MonoBehaviour
     {
         block.Break();
         // play drill sound
-        AudioSource.PlayClipAtPoint(drillSound, transform.position);
+        AudioSource.PlayClipAtPoint(drillSound, transform.position, 0.1f);
 
         //Add materials here somehow
         InventoryManager.addItemToInventory(block.blockType, 1);
