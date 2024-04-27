@@ -133,8 +133,8 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
-  m_UseWorldSpace: 0
-  m_Loop: 0
+  m_UseWorldSpace: 1
+  m_Loop: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &2178912261530299290
 GameObject:
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 2178912261530299290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0, z: 0}
+  m_LocalPosition: {x: 1.77, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2655584728647018626}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.09054565, w: 0.9958923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -199,7 +199,7 @@ Transform:
   - {fileID: 1230767523968884339}
   - {fileID: 9056175789365291010}
   m_Father: {fileID: 7193507713634933182}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4548889434861797992
 GameObject:
   m_ObjectHideFlags: 0
