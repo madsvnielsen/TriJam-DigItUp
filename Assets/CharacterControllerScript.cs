@@ -8,6 +8,7 @@ public class CharacterControllerScript : MonoBehaviour
     private Rigidbody2D rb;
 
     public Transform drill;
+    public AudioClip drillSound;
 
     public float pushbackForce = 1f;
 
@@ -64,6 +65,9 @@ public class CharacterControllerScript : MonoBehaviour
     public void MineBlock(Block block)
     {
         block.Break();
+        // play drill sound
+        AudioSource.PlayClipAtPoint(drillSound, transform.position);
+
         //Add materials here somehow
         InventoryManager.addItemToInventory(block.blockType, 1);
         AddPushbackForce(block);
