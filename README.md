@@ -1,4 +1,4 @@
-# Ore Defender
+# Astral Prospector
 
 A fast-paced, multi-section game where players mine for ores, upgrade their defenses, and protect something from incoming enemies.
 
@@ -20,7 +20,7 @@ A fast-paced, multi-section game where players mine for ores, upgrade their defe
 
 ## Installation
 
-To play Ore Defender, follow these steps:
+To play Astral Prospector, follow these steps:
 
 1. Clone the repository to your local machine.
 2. Open the project in Unity.
