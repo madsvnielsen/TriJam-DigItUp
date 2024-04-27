@@ -7,9 +7,20 @@ public class Block : MonoBehaviour
     public BlockType blockType = BlockType.Stone;
     public int strength = 1;
 
+    public GameObject brokenOverlay;
+
     public void SetSprite(Sprite newSprite){
         GetComponent<SpriteRenderer>().sprite = newSprite;
     }
+
+    public void Break(){
+        if(--strength <= 0){
+            Destroy(gameObject);
+            return;
+        }
+        brokenOverlay.SetActive(true);
+    }
+
 
     
   
