@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombShotBehaviour : MonoBehaviour
+public class GatlinShotBehaviour : MonoBehaviour
 {
-    public GameObject explosion;
+    public int damage = 5;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            collision.GetComponent<EnemyHPScript>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -13,9 +13,10 @@ public class ExplosionScript : MonoBehaviour
         {
             if(collider.gameObject.tag == "Enemy")
             {
-                collider.gameObject.GetComponent<EnemyHPScript>()
+                collider.gameObject.GetComponent<EnemyHPScript>().TakeDamage(damage);
             }
         }
+        Destroy(gameObject,1f);
     }
 
     
