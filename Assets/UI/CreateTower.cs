@@ -13,6 +13,7 @@ public class CreateTower : MonoBehaviour
     public GameObject planet;
 
     private GameObject spawnedTower;
+    private int i = 0;
     public GameObject tower1;
     public GameObject tower2;
     public GameObject tower3;
@@ -56,6 +57,24 @@ public class CreateTower : MonoBehaviour
             {
                 isTowerSelected = false;
                 spawnedTower = null;
+                if (i == 1)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 5);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 2);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 0);
+                }
+                else if (i == 2)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 2);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 6);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 1);
+                }
+                else if (i == 3)
+                {
+                    InventoryManager.removeItemFromInventory(ResourceType.Copperium, 1);
+                    InventoryManager.removeItemFromInventory(ResourceType.Golduim, 3);
+                    InventoryManager.removeItemFromInventory(ResourceType.Spacesonium, 7);
+                }
             }
         }
     }
@@ -64,17 +83,30 @@ public class CreateTower : MonoBehaviour
     {
         if (i == 1)
         {
+            if (InventoryManager.Copperium < 5 || InventoryManager.Goldium < 2)
+            {
+                return;
+            }
             towerPrefab = tower1;
         }
         else if (i == 2)
         {
+            if (InventoryManager.Copperium < 2 || InventoryManager.Goldium < 6 || InventoryManager.Spacesonium < 1)
+            {
+                return;
+            }
             towerPrefab = tower2;
         }
         else if (i == 3)
         {
+            if (InventoryManager.Copperium < 1 || InventoryManager.Goldium < 3 || InventoryManager.Spacesonium < 7)
+            {
+                return;
+            }
             towerPrefab = tower3;
         }
         isTowerSelected = true;
+        this.i = i;
 
         Vector3 worldPosition = planetCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition.z = 0;
