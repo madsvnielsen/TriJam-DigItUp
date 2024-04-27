@@ -13,6 +13,9 @@ public class CreateTower : MonoBehaviour
     public GameObject planet;
 
     private GameObject spawnedTower;
+    public GameObject tower1;
+    public GameObject tower2;
+    public GameObject tower3;
 
     private float correctionX = 25.82238f;
     private float correctionY = 302.955f;
@@ -57,9 +60,20 @@ public class CreateTower : MonoBehaviour
         }
     }
 
-    public void SetTowerPrefab(GameObject towerPrefab)
+    public void SetTowerPrefab(int i)
     {
-        this.towerPrefab = towerPrefab;
+        if (i == 1)
+        {
+            towerPrefab = tower1;
+        }
+        else if (i == 2)
+        {
+            towerPrefab = tower2;
+        }
+        else if (i == 3)
+        {
+            towerPrefab = tower3;
+        }
         isTowerSelected = true;
 
         Vector3 worldPosition = planetCamera.ScreenToWorldPoint(Input.mousePosition);
