@@ -23,7 +23,7 @@ public class CharacterControllerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         rb.AddForce(new Vector2(moveHorizontal, 0) * speed);
@@ -35,13 +35,13 @@ public class CharacterControllerScript : MonoBehaviour
         if (moveHorizontal < 0)
         {
             //transform.localScale = new Vector3(-1, 1, 1);
-            GetComponent<SpriteRenderer>().flipX = true; 
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (moveHorizontal > 0)
         {
             //transform.localScale = new Vector3(1, 1, 1);
-            GetComponent<SpriteRenderer>().flipX = false;
-            
+            GetComponent<SpriteRenderer>().flipX = true;
+
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -76,7 +76,8 @@ public class CharacterControllerScript : MonoBehaviour
         AudioSource.PlayClipAtPoint(drillSound, transform.position, 0.1f);
 
         //Add materials here somehow
-        if(block.blockType != ResourceType.Stone){
+        if (block.blockType != ResourceType.Stone)
+        {
             InventoryManager.addItemToInventory(block.blockType, 1);
         }
         UpdateResourceCounts();
@@ -91,7 +92,8 @@ public class CharacterControllerScript : MonoBehaviour
         rb.AddForce(forceVector * pushbackForce);
     }
 
-    private void UpdateResourceCounts(){
+    private void UpdateResourceCounts()
+    {
         copperCountTxt.SetText(InventoryManager.Copperium.ToString());
         goldCountTxt.SetText(InventoryManager.Goldium.ToString());
         spaceCountTxt.SetText(InventoryManager.Spacesonium.ToString());
