@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   drill: {fileID: 4892206173471433700}
+  drillSound: {fileID: 8300000, guid: 1eb5d5107380d154b802e7bb300bd70f, type: 3}
   pushbackForce: 1
 --- !u!50 &2647667183831585696
 Rigidbody2D:

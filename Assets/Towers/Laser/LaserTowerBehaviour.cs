@@ -11,7 +11,7 @@ public class LaserTowerBehaviour : MonoBehaviour
 
     void Start()
     {
-        transform.GetChild(2).GetComponent<LineRenderer>().SetPosition(0, transform.GetChild(1).GetChild(1).position);
+        
         transform.GetChild(2).GetComponent<LineRenderer>().enabled = false;
         InvokeRepeating("Shoot", 0.1f, 0.1f);
     }
@@ -37,7 +37,12 @@ public class LaserTowerBehaviour : MonoBehaviour
                 
                 Debug.Log("Shoot");
                 transform.GetChild(2).GetComponent<LineRenderer>().enabled = true;
+                transform.GetChild(2).GetComponent<LineRenderer>().SetPosition(0, transform.GetChild(1).GetChild(1).position);
                 transform.GetChild(2).GetComponent<LineRenderer>().SetPosition(1, target.position);
+                if(target.gameObject.tag == "Enemy")
+                {
+                    target.gameObject.GetComponent<EnemyHPScript>().TakeDamage(2);
+                }
             }
         }
     }
@@ -46,6 +51,10 @@ public class LaserTowerBehaviour : MonoBehaviour
         if (target != null)
         {
             transform.GetChild(1).right = target.position - transform.GetChild(1).position;
+        }
+        else
+        {
+            transform.GetChild(2).GetComponent<LineRenderer>().enabled = false;
         }
     }
 
