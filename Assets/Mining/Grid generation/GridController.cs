@@ -11,9 +11,9 @@ public class GridController : MonoBehaviour{
     private List<Block> blocks;
 
   
-    float goldThreshold = 0.2f;
-    float spaceThreshold = 0.2f;
-    float copperiumThreshold = 0.2f;
+    float goldThreshold = 0.35f;
+    float spaceThreshold = 0.35f;
+    float copperiumThreshold = 0.35f;
 
     public Sprite goldSprite;
     public Sprite spaceSprite;
