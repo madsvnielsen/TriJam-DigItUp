@@ -49,12 +49,14 @@ public class CharacterControllerScript : MonoBehaviour
     public void MineBlock(Block block){
         block.Break();
         //Add materials here somehow
+        InventoryManager.addItemToInventory(block.blockType, 1);
         AddPushbackForce(block);
     }
 
     private void AddPushbackForce(Block block){
         Vector2 blockPosition = block.transform.position;
         Vector2 forceVector = (Vector2)transform.position - (Vector2)blockPosition;
+        rb.velocity = new Vector3(0f,0f,0f);
         rb.AddForce(forceVector * pushbackForce);
     }
 }

@@ -2,7 +2,7 @@ public static class InventoryManager
 {
     public static int Goldium { get; private set; }
     public static int Spacesonium { get; private set; }
-    public static int Steelium { get; private set; }
+    public static int Copperium { get; private set; }
     public static void addItemToInventory(ResourceType resourceType, int amount)
     {
         switch (resourceType)
@@ -13,8 +13,8 @@ public static class InventoryManager
             case ResourceType.Spacesonium:
                 Spacesonium += amount;
                 break;
-            case ResourceType.Steelium:
-                Steelium += amount;
+            case ResourceType.Copperium:
+                Copperium += amount;
                 break;
         }
     }
@@ -28,8 +28,8 @@ public static class InventoryManager
             case ResourceType.Spacesonium:
                 Spacesonium -= amount;
                 break;
-            case ResourceType.Steelium:
-                Steelium -= amount;
+            case ResourceType.Copperium:
+                Copperium -= amount;
                 break;
         }
     }
@@ -38,6 +38,7 @@ public enum ResourceType
 {
     Golduim,
     Spacesonium,
-    Steelium,
+    Copperium,
+    Stone
 
 }
