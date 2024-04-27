@@ -11,7 +11,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     public float pushbackForce = 1f;
 
-    
+
 
     void Start()
     {
@@ -26,37 +26,54 @@ public class CharacterControllerScript : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         rb.AddForce(new Vector2(0, moveVertical) * speed);
 
-        if(Input.GetKey(KeyCode.W)){
+        // flip the character
+        if (moveHorizontal < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (moveHorizontal > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
             SetDrillPosition(-90f);
         }
-        if(Input.GetKey(KeyCode.A)){
+        if (Input.GetKey(KeyCode.A))
+        {
             SetDrillPosition(0f);
         }
-        if(Input.GetKey(KeyCode.S)){
+        if (Input.GetKey(KeyCode.S))
+        {
             SetDrillPosition(90f);
         }
-        if(Input.GetKey(KeyCode.D)){
+        if (Input.GetKey(KeyCode.D))
+        {
             SetDrillPosition(180f);
         }
 
 
     }
 
-    private void SetDrillPosition(float newZRotation){
-        drill.transform.eulerAngles = new Vector3(0,0,newZRotation);
+    private void SetDrillPosition(float newZRotation)
+    {
+        drill.transform.eulerAngles = new Vector3(0, 0, newZRotation);
     }
 
-    public void MineBlock(Block block){
+    public void MineBlock(Block block)
+    {
         block.Break();
         //Add materials here somehow
         InventoryManager.addItemToInventory(block.blockType, 1);
         AddPushbackForce(block);
     }
 
-    private void AddPushbackForce(Block block){
+    private void AddPushbackForce(Block block)
+    {
         Vector2 blockPosition = block.transform.position;
         Vector2 forceVector = (Vector2)transform.position - (Vector2)blockPosition;
-        rb.velocity = new Vector3(0f,0f,0f);
+        rb.velocity = new Vector3(0f, 0f, 0f);
         rb.AddForce(forceVector * pushbackForce);
     }
 }
