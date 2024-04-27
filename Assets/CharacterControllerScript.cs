@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CharacterControllerScript : MonoBehaviour
 {
     public float speed = 10.0f;
@@ -11,6 +11,10 @@ public class CharacterControllerScript : MonoBehaviour
     public AudioClip drillSound;
 
     public float pushbackForce = 1f;
+
+    public TMP_Text copperCountTxt;
+    public TMP_Text goldCountTxt;
+    public TMP_Text spaceCountTxt;
 
 
 
@@ -30,11 +34,14 @@ public class CharacterControllerScript : MonoBehaviour
         // flip the character
         if (moveHorizontal < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+            GetComponent<SpriteRenderer>().flipX = true; 
         }
         else if (moveHorizontal > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
+            GetComponent<SpriteRenderer>().flipX = false;
+            
         }
 
         if (Input.GetKey(KeyCode.W))
@@ -69,7 +76,10 @@ public class CharacterControllerScript : MonoBehaviour
         AudioSource.PlayClipAtPoint(drillSound, transform.position, 0.1f);
 
         //Add materials here somehow
-        InventoryManager.addItemToInventory(block.blockType, 1);
+        if(block.blockType != ResourceType.Stone){
+            InventoryManager.addItemToInventory(block.blockType, 1);
+        }
+        UpdateResourceCounts();
         AddPushbackForce(block);
     }
 
@@ -79,5 +89,11 @@ public class CharacterControllerScript : MonoBehaviour
         Vector2 forceVector = (Vector2)transform.position - (Vector2)blockPosition;
         rb.velocity = new Vector3(0f, 0f, 0f);
         rb.AddForce(forceVector * pushbackForce);
+    }
+
+    private void UpdateResourceCounts(){
+        copperCountTxt.SetText(InventoryManager.Copperium.ToString());
+        goldCountTxt.SetText(InventoryManager.Goldium.ToString());
+        spaceCountTxt.SetText(InventoryManager.Spacesonium.ToString());
     }
 }
