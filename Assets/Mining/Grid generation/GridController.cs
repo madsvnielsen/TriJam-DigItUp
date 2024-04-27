@@ -44,6 +44,8 @@ public class GridController : MonoBehaviour{
                 float zAngle = randomZRotation * 90f;
                 newBlock.transform.rotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y, zAngle);
 
+                newBlock.blockType = ResourceType.Stone;
+
                 
                 if (Mathf.PerlinNoise((x + goldOffset + xNoiseOffset) / 10f - 0.1f, (y + goldOffset + yNoiseOffset) / 10f - 0.1f) > 1 - goldThreshold)
                 {
