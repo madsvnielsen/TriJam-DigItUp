@@ -32,7 +32,7 @@ public class GatlinGunScript : MonoBehaviour
 
                 Debug.Log("Shoot");
                 GameObject _shot = Instantiate(shot, transform.GetChild(1).GetChild(1).position, Quaternion.identity);
-                _shot.GetComponent<Rigidbody2D>().AddForce(transform.GetChild(1).right * 100f);
+                _shot.GetComponent<Rigidbody2D>().AddForce(transform.GetChild(1).right * 150f);
             }
         }
     }

@@ -6,6 +6,8 @@ public class GameOver : MonoBehaviour
     public GameObject gameOverScreen;
     public TMP_Text timerText; // Assign in Unity editor
     public TMP_Text gameOverTimeText; // Assign in Unity editor
+    public GameObject player;
+    public GameObject playerDriller;
 
     private float timer = 0.0f;
 
@@ -27,10 +29,22 @@ public class GameOver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            gameOverScreen.SetActive(true);
-            gameOverTimeText.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            collision.gameObject.GetComponent<EnemyHPScript>().Health = 1000000f;
+
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            playerDriller.GetComponent<SpriteRenderer>().enabled = false;
+
+
             gameOverTimeText.SetText(timer.ToString("0.") + " seconds");
+            Time.timeScale = 0.1f;
+            Invoke("OpenGameOverScreen", 0.3f);
         }
+    }
+
+    public void OpenGameOverScreen()
+    {
+        gameOverScreen.SetActive(true);
+        gameOverTimeText.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

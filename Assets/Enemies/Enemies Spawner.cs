@@ -19,7 +19,7 @@ public class EnemiesSpawner : MonoBehaviour
 
     async Task SpawnEnemy()
     {
-        int enemiesToSpawn = Mathf.FloorToInt(Mathf.Pow(wave, 2f) / 11.4f + 1.1f * wave);
+        int enemiesToSpawn = Mathf.FloorToInt(Mathf.Pow(wave, 2f) / 17f + wave);
 
         for (int i = 0; i < enemiesToSpawn; i++)
         {
