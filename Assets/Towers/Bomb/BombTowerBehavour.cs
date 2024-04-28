@@ -7,14 +7,19 @@ public class BombTowerBehavour : MonoBehaviour
     Collider2D towerCollider;
     List<GameObject> enemiesSpotted = new List<GameObject>();
     private Transform target;
+    float shootingTime = -5f;
     [SerializeField] private GameObject shot;
     void Start()
     {
         towerCollider = GetComponent<Collider2D>();
-        InvokeRepeating("Shoot", 3f, 3f);
+        InvokeRepeating("Shoot", 1f, 0.1f);
     }
     private void Shoot()
     {
+        if (Time.time - shootingTime < 5f)
+        {
+            return;
+        }
         if (enemiesSpotted.Count >= 1)
         {
             float smallestDistance = 100f;
@@ -29,10 +34,9 @@ public class BombTowerBehavour : MonoBehaviour
             }
             if (target != null)
             {
-
-                Debug.Log("Shoot");
                 GameObject _shot = Instantiate(shot, transform.GetChild(1).GetChild(1).position, Quaternion.identity);
                 _shot.GetComponent<Rigidbody2D>().AddForce(transform.GetChild(1).right * 100f);
+                shootingTime = Time.time;
             }
         }
     }

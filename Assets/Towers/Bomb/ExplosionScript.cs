@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class ExplosionScript : MonoBehaviour
 {
-    [SerializeField] float range = 5f;
+    [SerializeField] float range = 4f;
     [SerializeField] int damage = 5;
     void Start()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider in colliders)
         {
-            if(collider.gameObject.tag == "Enemy")
+            if (collider.gameObject.tag == "Enemy")
             {
                 collider.gameObject.GetComponent<EnemyHPScript>().TakeDamage(damage);
             }
         }
-        Destroy(gameObject,1f);
+        Destroy(gameObject, 0.4f);
     }
 
-    
+
 }
