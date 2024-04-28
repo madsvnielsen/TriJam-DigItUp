@@ -8,15 +8,14 @@ public class LaserTowerBehaviour : MonoBehaviour
     Collider2D towerCollider;
     List<GameObject> enemiesSpotted = new List<GameObject>();
     private Transform target;
+    private Transform lastTarget;
+    public float dps = 0.1f;
+    public GameObject laser;
 
     void Start()
     {
-        
-        transform.GetChild(2).GetComponent<LineRenderer>().enabled = false;
-        InvokeRepeating("Shoot", 0.1f, 0.1f);
+        InvokeRepeating("Shoot", 1f, 0.1f);
     }
-
-    
 
     private void Shoot()
     {
@@ -32,18 +31,35 @@ public class LaserTowerBehaviour : MonoBehaviour
                     target = go.transform;
                 }
             }
+            if (lastTarget != target)
+            {
+                lastTarget = target;
+                dps = 1;
+            }
             if (target != null)
             {
-                
-                Debug.Log("Shoot");
-                transform.GetChild(2).GetComponent<LineRenderer>().enabled = true;
-                transform.GetChild(2).GetComponent<LineRenderer>().SetPosition(0, transform.GetChild(1).GetChild(1).position);
-                transform.GetChild(2).GetComponent<LineRenderer>().SetPosition(1, target.position);
-                if(target.gameObject.tag == "Enemy")
+                laser.SetActive(true);
+                laser.transform.localScale = new Vector3(Vector3.Distance(transform.position, target.position), laser.transform.localScale.y, laser.transform.localScale.z);
+                if (target.gameObject.tag == "Enemy")
                 {
-                    target.gameObject.GetComponent<EnemyHPScript>().TakeDamage(2);
+                    target.gameObject.GetComponent<EnemyHPScript>().TakeDamage(dps * 0.1f);
                 }
+
+                if (dps > 20)
+                {
+                    return;
+                }
+                dps *= 1.05f;
+                laser.transform.localScale = new Vector3(laser.transform.localScale.x, 1 + (dps - 0.1f) / 4, laser.transform.localScale.z);
             }
+            else
+            {
+                laser.SetActive(false);
+            }
+        }
+        else
+        {
+            laser.SetActive(false);
         }
     }
     void Update()

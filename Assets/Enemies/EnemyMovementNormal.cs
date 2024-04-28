@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovementNormal : MonoBehaviour
 {
-    float speed = 2f;
+    public float speed = 2f;
     Transform target;
     void Start()
     {
@@ -19,7 +19,7 @@ public class EnemyMovementNormal : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "planet")
+        if (collision.gameObject.tag == "planet")
         {
             GameObject.FindGameObjectWithTag("ENDGAME").GetComponent<endsTheGame>().endGame();
         }

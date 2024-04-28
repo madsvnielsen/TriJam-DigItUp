@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyHPScript : MonoBehaviour
 {
-    public int Health;
-    public void TakeDamage(int dmg)
+    public float Health;
+    public void TakeDamage(float dmg)
     {
         Health -= dmg;
         if(Health < 0)
