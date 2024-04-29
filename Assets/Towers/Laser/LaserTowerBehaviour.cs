@@ -50,7 +50,7 @@ public class LaserTowerBehaviour : MonoBehaviour
                     return;
                 }
                 dps *= 1.05f;
-                laser.transform.localScale = new Vector3(laser.transform.localScale.x, 1 + (dps - 0.1f) / 4, laser.transform.localScale.z);
+                laser.transform.localScale = new Vector3(laser.transform.localScale.x, 1 + (dps - 0.1f) / 3, laser.transform.localScale.z);
             }
             else
             {

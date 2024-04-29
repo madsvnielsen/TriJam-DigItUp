@@ -10,11 +10,11 @@ public class EnemiesSpawner : MonoBehaviour
     public GameObject Boss;
 
     private int wave = 0;
-    private float spawnInterval = 10f;
+    private float spawnInterval = 13f;
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", spawnInterval, spawnInterval);
+        InvokeRepeating("SpawnEnemy", 15f, spawnInterval);
     }
 
     async Task SpawnEnemy()
@@ -23,7 +23,7 @@ public class EnemiesSpawner : MonoBehaviour
 
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            await Task.Delay(200);
+            await Task.Delay(150);
             Vector3 position = gameObject.transform.position;
             Vector3 randomVector = new Vector3(20, 20, 0);
 

@@ -134,8 +134,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   drill: {fileID: 4892206173471433700}
+  drillSprite: {fileID: 7890811496320869237}
   drillSound: {fileID: 8300000, guid: 1eb5d5107380d154b802e7bb300bd70f, type: 3}
   pushbackForce: 1
+  copperCountTxt: {fileID: 0}
+  goldCountTxt: {fileID: 0}
+  spaceCountTxt: {fileID: 0}
 --- !u!50 &2647667183831585696
 Rigidbody2D:
   serializedVersion: 4
@@ -226,8 +230,8 @@ Transform:
   m_GameObject: {fileID: 8796409057183128726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.27, y: 0, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -1.03, y: 0, z: 0}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4892206173471433700}
@@ -327,7 +331,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.45, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4087770966870067963
 MonoBehaviour:
