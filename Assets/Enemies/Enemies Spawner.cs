@@ -14,7 +14,7 @@ public class EnemiesSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 18f, spawnInterval);
+        InvokeRepeating("SpawnEnemy", 23f, spawnInterval);
     }
 
     async Task SpawnEnemy()

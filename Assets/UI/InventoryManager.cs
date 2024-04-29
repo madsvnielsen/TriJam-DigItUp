@@ -16,6 +16,9 @@ public class InventoryManager : MonoBehaviour
         copperCountTxt = GameObject.Find("copperCount").GetComponent<TMP_Text>();
         goldCountTxt = GameObject.Find("goldCount").GetComponent<TMP_Text>();
         spaceCountTxt = GameObject.Find("spaceCount").GetComponent<TMP_Text>();
+        copperCountTxt = GameObject.Find("copperCount").GetComponent<TMP_Text>();
+        goldCountTxt = GameObject.Find("goldCount").GetComponent<TMP_Text>();
+        spaceCountTxt = GameObject.Find("spaceCount").GetComponent<TMP_Text>();
     }
     public static void Reset()
     {
