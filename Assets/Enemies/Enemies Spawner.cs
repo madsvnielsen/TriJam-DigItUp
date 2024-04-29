@@ -17,13 +17,12 @@ public class EnemiesSpawner : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 23f, spawnInterval);
     }
 
-    async Task SpawnEnemy()
+    void SpawnEnemy()
     {
         int enemiesToSpawn = Mathf.FloorToInt(Mathf.Pow(wave, 2f) / 17f + wave);
 
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            await Task.Delay(150);
             Vector3 position = gameObject.transform.position;
             Vector3 randomVector = new Vector3(20, 20, 0);
 

@@ -2,6 +2,9 @@
 
 A fast-paced, multi-section game where players mine for ores, upgrade their defenses, and protect something from incoming enemies.
 
+##
+![Game Screenshot](screenshot.png)
+
 ## Gameplay Overview
 
 

@@ -5,9 +5,9 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
+/[Bb]uild**
 /[Bb]uilds/
-/[Ll]ogs/
+/[Ll]ogs\vec{\nabla}^2 \mathbf{A} = \hat{x} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) A_x + \hat{y} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) A_y + \hat{z} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) A_z/
 /[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
