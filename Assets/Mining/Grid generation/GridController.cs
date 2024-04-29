@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridController : MonoBehaviour{
+public class GridController : MonoBehaviour
+{
 
     public int width, height;
 
@@ -10,7 +11,7 @@ public class GridController : MonoBehaviour{
 
     private List<Block> blocks;
 
-  
+
     float goldThreshold = 0.35f;
     float spaceThreshold = 0.35f;
     float copperiumThreshold = 0.35f;
@@ -19,14 +20,16 @@ public class GridController : MonoBehaviour{
     public Sprite spaceSprite;
     public Sprite copperiumSprite;
 
-    public void Start(){
+    public void Start()
+    {
         GenerateGrid();
     }
 
-    void GenerateGrid(){
+    void GenerateGrid()
+    {
 
-        float xNoiseOffset = Random.Range(0,100) * 100000f;
-        float yNoiseOffset = Random.Range(0,100) * 100000f;
+        float xNoiseOffset = Random.Range(0, 100) * 100000f;
+        float yNoiseOffset = Random.Range(0, 100) * 100000f;
 
         float goldOffset = width;
         float spaceOffset = width * 2;
@@ -34,9 +37,11 @@ public class GridController : MonoBehaviour{
 
         blocks = new List<Block>();
 
-        
-        for(int x = -(width/2); x < width/2; x++){
-            for(int y = 0; y > -height; y--){
+
+        for (int x = -(width / 2); x < width / 2; x++)
+        {
+            for (int y = 0; y > -height; y--)
+            {
                 Block newBlock = Instantiate(blockPrefab, new Vector3(x + transform.position.x, y + transform.position.y, 0), Quaternion.identity);
                 newBlock.name = $"Block {x}{y}";
                 Quaternion currentRotation = transform.rotation;
@@ -46,29 +51,29 @@ public class GridController : MonoBehaviour{
 
                 newBlock.blockType = ResourceType.Stone;
 
-                
+
                 if (Mathf.PerlinNoise((x + goldOffset + xNoiseOffset) / 10f - 0.1f, (y + goldOffset + yNoiseOffset) / 10f - 0.1f) > 1 - goldThreshold)
                 {
                     //Set goldium
-                    newBlock.strength = 2;
+                    newBlock.strength = 4;
                     newBlock.blockType = ResourceType.Golduim;
                     newBlock.SetSprite(goldSprite);
                 }
                 else if (Mathf.PerlinNoise((x + spaceOffset + xNoiseOffset) / 10f - 0.1f, (y + spaceOffset + yNoiseOffset) / 10f - 0.1f) > 1 - spaceThreshold)
                 {
                     //Set spaceononium
-                    newBlock.strength = 2;
+                    newBlock.strength = 4;
                     newBlock.blockType = ResourceType.Spacesonium;
                     newBlock.SetSprite(spaceSprite);
                 }
                 else if (Mathf.PerlinNoise((x + copperiumOffset + xNoiseOffset) / 10f - 0.1f, (y + copperiumOffset + yNoiseOffset) / 10f - 0.1f) > 1 - copperiumThreshold)
                 {
                     //Set copperium
-                    newBlock.strength = 2;
+                    newBlock.strength = 4;
                     newBlock.blockType = ResourceType.Copperium;
                     newBlock.SetSprite(copperiumSprite);
                 }
-                
+
                 blocks.Add(newBlock);
             }
         }

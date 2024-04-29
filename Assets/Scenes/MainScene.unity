@@ -941,6 +941,7 @@ GameObject:
   - component: {fileID: 458035094}
   - component: {fileID: 458035093}
   - component: {fileID: 458035092}
+  - component: {fileID: 458035096}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1043,6 +1044,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &458035096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458035091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b7853a98b3a554a9755fa04a6fcb64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &488748261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1694,10 @@ PrefabInstance:
       propertyPath: m_LinearDrag
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 1786855325362507500, guid: e5d2dcd76a6d55f4ba38e51038e30b02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3878531440184864299, guid: e5d2dcd76a6d55f4ba38e51038e30b02, type: 3}
       propertyPath: speed
       value: 75
@@ -1701,6 +1718,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7710548142907000501, guid: e5d2dcd76a6d55f4ba38e51038e30b02, type: 3}
+      propertyPath: blockPrefab
+      value: 
+      objectReference: {fileID: 6304917695150554334, guid: 983f3bbce57200f4981b13413660d310, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5760885417438857118, guid: e5d2dcd76a6d55f4ba38e51038e30b02, type: 3}

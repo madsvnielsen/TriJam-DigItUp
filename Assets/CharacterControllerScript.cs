@@ -13,9 +13,6 @@ public class CharacterControllerScript : MonoBehaviour
 
     public float pushbackForce = 1f;
 
-    public TMP_Text copperCountTxt;
-    public TMP_Text goldCountTxt;
-    public TMP_Text spaceCountTxt;
 
 
 
@@ -77,12 +74,6 @@ public class CharacterControllerScript : MonoBehaviour
         // play drill sound
         AudioSource.PlayClipAtPoint(drillSound, transform.position, 0.1f);
 
-        //Add materials here somehow
-        if (block.blockType != ResourceType.Stone)
-        {
-            InventoryManager.addItemToInventory(block.blockType, 1);
-        }
-        UpdateResourceCounts();
         AddPushbackForce(block);
     }
 
@@ -92,12 +83,5 @@ public class CharacterControllerScript : MonoBehaviour
         Vector2 forceVector = (Vector2)transform.position - (Vector2)blockPosition;
         rb.velocity = new Vector3(0f, 0f, 0f);
         rb.AddForce(forceVector * pushbackForce);
-    }
-
-    private void UpdateResourceCounts()
-    {
-        copperCountTxt.SetText(InventoryManager.Copperium.ToString());
-        goldCountTxt.SetText(InventoryManager.Goldium.ToString());
-        spaceCountTxt.SetText(InventoryManager.Spacesonium.ToString());
     }
 }
